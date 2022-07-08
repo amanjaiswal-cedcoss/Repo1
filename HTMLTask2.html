@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Task 2</title>
+    <style>
+
+      #head{
+        display: block;
+        float: right;
+        padding-right: 20px;
+      }  
+      h4{
+        color: brown;
+        text-decoration: underline;
+      }
+     
+      #address
+      {
+        height: 80px;
+      }
+      #addr
+      {
+           text-align: start;
+      }
+      td
+      {
+        padding: 4px;
+      }
+      input
+      {
+        width: 480px;
+      }
+      .gender{
+        width: 20px;
+      }
+      #select{
+        width: 480px;
+      }
+      .speci{
+        width: 20px;
+      }
+      button{
+        border-radius: 7px;
+    background-color: green;
+    padding: 5px;
+    border: none;
+      }
+      #low{
+        padding-top: 75px;
+      }
+    </style>
+</head>
+<body>
+    <div id="head"><h4>Student Registration Form</h4></div>
+    <div id="low"><table>
+    <form id="for">
+        <tr>
+            <td><label for="fname">First name:</label><br></td>
+            <td><input type="text" id="fname" name="fname"><br></td>
+        </tr>
+        <tr>
+            <td><label for="lname">Last name:</label><br></td>
+            <td><input type="text" id="lname" name="lname"><br></td>
+         </tr> 
+        <tr>
+            <td><label for="email">E-Mail</label><br></td>
+             <td><input type="text" id="email" name="fname"><br>
+         </tr>
+       <tr> 
+        <td><label for="mobile">Mobile</label><br>
+        <td><input type="text" id="mobile" name="lname"><br>
+            </tr>
+        <tr><td><label for="gender">Gender</label><br>
+        <td><input type="radio"  class="gender" name="fname"><label class="gender" for="Male">Male</label>
+            <input type="radio" class="gender" name="fname"><label class="gender" for="Female">Female</label>
+            <br>
+        </tr>
+        <tr><td><label for="dob">Date of Birth</label><br>
+        <td><input type="date" id="dob" name="lname"><br></td>
+        </tr>
+        <tr>
+            <td  id="addr"><label for="address">Address</label><br>
+        <td><input type="text" id="address" name="fname"><br>
+        </tr>
+        <tr><td><label for="city">City</label><br></td>
+        <td><input type="text" id="city" name="lname"><br></td>
+        </tr>
+        <tr>
+            <td><label for="area">Area PIN</label><br></td>
+        <td><input type="text" id="area" name="fname"><br></td>
+        </tr>
+        <tr><td><label for="state">State</label><br></td>
+        <td><input type="text" id="state" name="lname"><br></td>
+        </tr>
+        <tr>
+            <td><label for="quali">Qualification</label><br></td>
+        <td> <select id="select" name="quali">
+            <option value="">BBA</option>
+            <option value="">BCA</option>
+            <option value="">BTech</option>
+        </select><br></td>
+        </tr>
+        <tr>
+            <td><label for="speci">Specialization</label><br></td>
+        <td><table><tr><td class="special"><input type="checkbox" class="speci" name="lname">Computer Science </td> </tr>
+                   <tr><td class="special"><input type="checkbox" class="speci" name="lname">Information Technology </td> </tr>
+                   <tr><td class="special"><input type="checkbox" class="speci" name="lname">Computer Architecture </td> </tr>
+                   <tr><td class="special"><input type="checkbox" class="speci" name="lname">Tele Communication </td> </tr><br></table></td>
+        </tr>
+        <tr>
+            <td><label for="pass">Password</label><br></td>
+        <td><input type="text" id="pass" name="fname"><br></td>
+      </tr>
+
+     <tr> <td id="but"><div><button> Registered</button></div></td></tr>
+    </form>
+      </table></div>
+</body>
+</html>
