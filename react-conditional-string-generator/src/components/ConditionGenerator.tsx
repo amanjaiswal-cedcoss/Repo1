@@ -67,8 +67,6 @@ function ConditionGenerator() {
     setConditions([...conditions]);
   };
 
-  console.log(conditions)
-
   return (
     <Card className="col-6 mx-auto my-2">
       <Card.Header>
