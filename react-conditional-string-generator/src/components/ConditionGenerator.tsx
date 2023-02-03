@@ -43,7 +43,7 @@ function ConditionGenerator() {
     conditions.forEach((ele, i) => {
       if (Object.values(ele).indexOf("") === -1) {
         condition += "(" + ele.variable1 + ele.relation + ele.variable2 + ")";
-        if (i !== conditions.length - 1) {
+        if (i!==conditions.length-1) {
           condition += orAnd ? " || " : " && ";
         }
       }
@@ -52,6 +52,11 @@ function ConditionGenerator() {
   }, [conditions, orAnd]);
 
   const addCondition = () => {
+    let indEmpty=conditions.findIndex((ele)=>{
+      return Object.values(ele).indexOf('')!==-1
+    })
+    console.log(indEmpty)
+    if(indEmpty===-1){
     let obj = {
       id: conditions.length,
       variable1: "Title",
@@ -60,6 +65,10 @@ function ConditionGenerator() {
     };
     conditions.push(obj);
     setConditions([...conditions]);
+  }
+  else{
+    alert('Fill in all the existing condition values to add a new one')
+  }
   };
 
   const deleteCondition = (i: number) => {
@@ -106,43 +115,44 @@ function ConditionGenerator() {
                 : relationObj.str;
             return (
               <div className="d-flex gap-2 my-2" key={item.id}>
-                <span className="d-flex gap-2 col-10"><Form.Select
-                  size="sm"
-                  value={item.variable1}
-                  onChange={(e) => onChangeHandler(i, e, "variable1")}
-                >
-                  {variable1Array.map((itemInner, i) => {
-                    return (
-                      <option key={i} value={itemInner} >
-                        {itemInner}
-                      </option>
-                    );
-                  })}
-                </Form.Select>
-                <Form.Select
-                  size="sm"
-                  value={item.relation}
-                  onChange={(e) => onChangeHandler(i, e, "relation")}
-                >
-                  {relationArr.map((itemInner, i) => {
-                    return (
-                      <option key={i} value={itemInner.value}>
-                        {itemInner.name}
-                      </option>
-                    );
-                  })}
-                </Form.Select>
-                <input
-                  className="col-4 border rounded-2 px-2 shorttxt"
-                  type={
-                    conditions[i].variable1 === "Quantity" ||
-                    conditions[i].variable1 === "Price"
-                      ? "number"
-                      : "text"
-                  }
-                  onChange={(e) => onChangeHandler(i, e, "variable2")}
-                  value={item.variable2}
-                />
+                <span className="d-flex gap-2 col-10">
+                  <Form.Select
+                    size="sm"
+                    value={item.variable1}
+                    onChange={(e) => onChangeHandler(i, e, "variable1")}
+                  >
+                    {variable1Array.map((itemInner, i) => {
+                      return (
+                        <option key={i} value={itemInner}>
+                          {itemInner}
+                        </option>
+                      );
+                    })}
+                  </Form.Select>
+                  <Form.Select
+                    size="sm"
+                    value={item.relation}
+                    onChange={(e) => onChangeHandler(i, e, "relation")}
+                  >
+                    {relationArr.map((itemInner, i) => {
+                      return (
+                        <option key={i} value={itemInner.value}>
+                          {itemInner.name}
+                        </option>
+                      );
+                    })}
+                  </Form.Select>
+                  <input
+                    className="col-4 border rounded-2 px-2 shorttxt"
+                    type={
+                      conditions[i].variable1 === "Quantity" ||
+                      conditions[i].variable1 === "Price"
+                        ? "number"
+                        : "text"
+                    }
+                    onChange={(e) => onChangeHandler(i, e, "variable2")}
+                    value={item.variable2}
+                  />
                 </span>
                 {i > 0 && (
                   <Button
